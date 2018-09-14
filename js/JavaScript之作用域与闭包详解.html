@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript之作用域与闭包详解</title>
+</head>
+<body>
+JavaScript之作用域
+    1 全局作用域
+     全局变量是javascript里生命周期最长的变量，其将跨越整个程序,可以被程序里的任意函数访问。
+    在全局声明的变量都会在window对象下，都在全局作用域中，我们都可以通过window对象访问，也可以直接访问。
+    var name='zhangsan';
+    console.log(window.name);
+    console.log(name)
+
+    在函数中，没有使用var声明的变量都是全局变量
+    function aa(){
+        name='lisi';
+        alert(name)
+    }
+    console.log(name) //lisi
+
+    2函数作用域(局部作用域)
+        局部作用域只能在函数中才能访问到，外部不能进行访问。
+        var name='zhangsan';
+        function aa(){
+            var name='lisi';
+            console.log(name) //lisi
+
+        }aa();
+        console.log(name) //zhangsan
+    3 闭包
+        定义在一个函数内部的函数
+
+
+
+</body>
+<script>
+var test = function() {
+     var ret = [];
+     for(var i = 0; i < 10; i++) {
+         ret[i] = function() {
+            return i;  
+         }
+    }
+     return ret; 
+ };
+ var test0 = test()[0]();
+ console.log(test0); //10
+ 
+ var test1 = test()[1]();
+ console.log(test1); //10
+
+
+
+for(var i = 0; i < 5; i++) {
+    setTimeout(function() {
+        console.log(i);  
+    }, 1000);
+}
+// 每隔1秒输出一个5
+//内部函数和外部函数并不是同步执行的,settimeout会有一个延迟事件排入队列，它会等同步执行完之后，在进行执行队列中的事件，而这个时候i就等于5。
+
+解决办法
+for(var l=0;l<5;l++){
+    (function(j){
+        setTimeout(function(){
+            console.log(j)
+        },1000)
+    })(l)
+}
+for(let l=0;l<5;l++){
+   setTimeout(function(){
+      console.log(l)
+   },1000)
+}
+
+
+
+//闭包，函数内部可以引用外部的变量和参数，但是参数和变量并不会通过垃圾回收装置删除，内存会变大，使用不恰当会造成内存泄漏
+//闭包使用场景 设计私有的方法和变量
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>
