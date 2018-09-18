@@ -50,7 +50,7 @@
   function deep(value){
     const NewObj=value.constructor ===Array?[]:{};  
     for(let keys in value){
-      if(value.hasOwnProperty(keys)){
+      if(value.hasOwnProperty(keys)){  //hasOwnProperty()判断对象是否包含特定的自身（非继承）属性。
         if(value[keys]&&typeof value[keys]==='object'){ // 如果值是对象，就递归一下
           NewObj[keys]=value[keys].constructor===Array?[]:{};
           NewObj[keys]=deep(value[keys])

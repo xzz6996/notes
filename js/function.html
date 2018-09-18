@@ -26,19 +26,13 @@
 
     //Array.prototype.slice.call() 把调用方法的参数给截取出来
     function myConcat(sper){
+        
         var args=Array.prototype.slice.call(arguments,0); 
         console.log(args)
-        return args.join();
+        return args.join(); //分割
     }
     console.log(myConcat('a','b','c','d'));
 
-
-
-
-
-
-    //箭头函数 
-    
 
 
     //剩余参数语法允许我们将一个不定数量的参数表示为一个数组。
