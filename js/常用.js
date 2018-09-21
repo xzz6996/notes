@@ -3,7 +3,7 @@ function formateDate(str) {
     const myDate=new Date(str);
     const year=myDate.getFullYear()+'-';
     const month=(myDate.getMonth()+1 < 10 ? '0'+(myDate.getMonth()+1) : myDate.getMonth()+1) + '-';
-    const day=myDate.getDate()+' ';
+    const day=myDate.getDate()+'  ';
     const hour=myDate.getHours()+':';
 	const minutes=myDate.getMinutes()+':';
 	const s = date.getSeconds();
