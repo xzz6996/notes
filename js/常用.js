@@ -48,3 +48,13 @@ function phone(phone){
 	var reg=/^1[3|5|7|8|4]\d{9}$/;
 	return reg.test(phone)
 }
+
+
+//数组随机排序
+function shufflle(arr){
+	let i=arr.length;
+	while(i){
+		let j=Math.floor(Math.random()*i--);
+		[arr[j],arr[i]]=[arr[i],arr[j]]
+	}
+}
