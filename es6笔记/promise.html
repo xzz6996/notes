@@ -44,4 +44,31 @@
     Promise.race([ loadImg('https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=56440742,2284854396&fm=173&app=25&f=JPEG?w=218&h=146&s=3A93E500D78E3FEF4CC931160100F0C0')]).then(showImg)
 }
 </script>
+<script>
+    const myHttpClient=url=>{
+        return new Promise((resolve,reject)=>{
+            let client=new XMLHttpRequest();
+            client.open('get',url);
+            client.onreadystatechange=handler();
+            client.responseType="json"; 
+            client.setRequestHeader('Accept','application/json');
+            client.send();    
+            function handler(){
+                if(this.readyState!==4){
+                    return
+                }    
+                if(this.status===200){
+                    resolve(this.response)
+                }else{
+                    reject(new Error(this.statusText))
+                }
+            }
+        })
+    }
+    myHttpClient('https://www.baidu.com').then(res=>{
+        console.log(res)
+    }).catch(err=>{
+        console.log(err)
+    })
+</script>  	
 </html>
