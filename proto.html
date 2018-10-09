@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+    原型链  __proto__是任何对象都有的属性，js里万物皆对象,形成了一条具有__proto__的链条 这就是所谓的原型链，如果我们的递归去访问__proto__，最终值为null
+
+    当js去访问对象的属性时，会现在对象本身查找，找不到就会去原型链上找，但不会从prototype上找
 </body>
 <script>
     //任何对象都有一个__proto__属性 (隐式原型)

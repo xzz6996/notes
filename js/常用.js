@@ -13,8 +13,8 @@ function formateDate(str) {
 //深拷贝
 function deepClone(source){
 	const targetObj= source.constructor ===Array?[]:{};
-	for(let keys in source){
-		if(source.hasOwnProperty(keys)){
+	for(let keys in source){  				//遍历一个对象的所有自身属性
+		if(source.hasOwnProperty(keys)){ //对象自身属性中是否具有指定的属性
 			if(source[keys]&&typeof source[keys]==='object'){
 				targetObj[keys]=source[keys].constructor === Array?[]:{};
 				targetObj[keys]=deepClone(source[keys])
