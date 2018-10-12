@@ -6,7 +6,7 @@ function formateDate(str) {
     const day=myDate.getDate()+'  ';
     const hour=myDate.getHours()+':';
 	const minutes=myDate.getMinutes()+':';
-	const s = date.getSeconds();
+	const s = myDate.getSeconds();
     return year+month+day+hour+minutes+s;
 }
 
