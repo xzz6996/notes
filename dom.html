@@ -12,7 +12,26 @@
         <div class="del">等着被删除</div>
     </div>
     <p class="p1"><span></span></p>
+    <input type="file" onchange="previewFile()">
+    <img src="" height="200">
 </body>
+<script>
+function previewFile() {
+  var preview = document.querySelector('img');
+  var file    = document.querySelector('input[type=file]').files[0];
+  console.log(document.querySelector('input[type=file]').files)
+  var reader  = new FileReader();
+  console.log(reader)
+  reader.addEventListener('load', function () {
+    preview.src = reader.result;
+  }, false);
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+}
+
+</script>
 <script>
 var ul=document.querySelector('ul');
 
