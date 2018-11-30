@@ -12,8 +12,17 @@ module.exports={
     //enter 制定一个或多个入口起点，默认为 ./src
     output:{ 
         //output告诉webpack在哪里输出bundle文件，默认为 ./dist
-        path:path.resolve(_dirname,'dist'),
+        path:path.resolve(__dirname,'dist'),
         filename:"my-first-webpack.bundle.js"
+    },
+    module:{
+        rule:[
+            {
+                test:/\.js$/,
+                exports:'',
+                 
+            }
+        ]
     },
     //loader 让webpack处理那些非javascript文件，loader 可以将所有类型的文件转换为 webpack 能够处理的有效模块，然后你就可以利用 webpack 的打包能力，对它们进行处理。
     modules:{
